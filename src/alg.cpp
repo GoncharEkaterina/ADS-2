@@ -33,6 +33,7 @@ double expn(double x, uint16_t count) {
       y += x / (i + 1.0);
       i++;
   }
+    return per;
 }
 
 double sinn(double x, uint16_t count) {
@@ -40,7 +41,7 @@ double sinn(double x, uint16_t count) {
     int i = 1;
     if (x == 0) {
         return x;
-    } else { 
+    } else {
           while (fabs(y) > count) {
               sin += y;
               i++;
@@ -56,7 +57,7 @@ double cosn(double x, uint16_t count) {
     int i = 1;
     if (x == 0) {
         return 1;
-    } else { 
+    } else {
           while (fabs(y) > count) {
               cos += y;
               i++;
@@ -67,7 +68,7 @@ double cosn(double x, uint16_t count) {
     return 0;
 }
 
-int main () {
+int main() {
     double value = 0, x = 0;
     uint16_t n = 0;
     std::cin >> value >> n >> x;
