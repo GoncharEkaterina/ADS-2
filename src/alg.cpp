@@ -5,7 +5,7 @@
 #include <iostream>
 
 double pown(double value, uint16_t n);
-int fact(int n);
+uint16_t fact(uint16_t n);
 double calcItem(double x, uint16_t n);
 double expn(double x, uint16_t count);
 double sinn(double x, uint16_t count);
@@ -15,7 +15,7 @@ double pown(double value, uint16_t n) {
     return pow(value, n);
 }
 
-int fact(int n) {
+uint16_t fact(uint16_t n) {
     if (n == 0 || n == 1) {
         return 1;
     } else { return n * fact(n - 1); }
