@@ -30,7 +30,7 @@ double expn(double x, uint16_t count) {
     int i = 0;
   while (fabs(y) > exp) {
       per += y;
-      y += x / (i + 1.0);
+      y *= x / (i + 1.0);
       i++;
   }
     return per;
