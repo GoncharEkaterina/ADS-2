@@ -12,7 +12,14 @@ double sinn(double x, uint16_t count);
 double cosn(double x, uint16_t count);
 
 double pown(double value, uint16_t n) {
-    return pow(value, n);
+    if (n == 0) {
+        return 1;
+    }
+    double res = value;
+    for (uint16_t i = 0; i < n-1; i++) {
+        res *= value;
+    }
+    return res;
 }
 
 uint64_t fact(uint16_t n) {
@@ -40,9 +47,9 @@ double sinn(double x, uint16_t count) {
 }
 
 double cosn(double x, uint16_t count) {
-  double c = 0;
-  for (int n = 1; n <= count; n++) {
-    c += pown(-1, (n-1))*calcItem(x, (2*n-2));
-  }
-  return c;
+    if (count == 1) {
+        return 1;
+    }
+    double tmp = pown(-1, count - 1) * calcItem(x, 2 * count - 2);
+    return tmp + cosn(x, count - 1);
 }
