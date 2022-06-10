@@ -46,15 +46,3 @@ double cosn(double x, uint16_t count) {
     double tmp = pown(-1, count - 1) * calcItem(x, 2 * count - 2);
     return tmp + cosn(x, count - 1);
 }
-
-int main() {
-    double value = 0, x = 0;
-    uint16_t n = 0;
-    std::cin >> value >> n >> x;
-    std::cout << pown(value, n) << std::endl;
-    std::cout << fact(n) << std::endl;
-    std::cout << calcItem(value, n) << std::endl;
-    std::cout << expn(x, n) << std::endl;
-    std::cout << sinn(x, n) << std::endl;
-    std::cout << cosn(x, n) << std::endl;
-}
