@@ -26,46 +26,24 @@ double calcItem(double x, uint16_t n) {
 }
 
 double expn(double x, uint16_t count) {
-    double per = 0, y = 1, exp = 1e-10;
-    int i = 0;
-  while (fabs(y) > exp) {
-      per += y;
-      y *= x / (i + 1.0);
-      i++;
-  }
-    return per;
+  double res = 1;
+  for (int i = 1; i <= count; i++)
+    res += calcItem(x, i);
+  return res;
 }
 
 double sinn(double x, uint16_t count) {
-    double sin = 0, y = x;
-    int i = 1;
-    if (x == 0) {
-        return x;
-    } else {
-          while (fabs(y) > count) {
-              sin += y;
-              i++;
-              y *= -x * x / (2.0 * i - 1.0) / (2.0 * i - 2.0);
-          }
-          return sin;
-      }
-    return 0;
+  double res = 0;
+  for (int i = 1; i <= count; i++)
+    res += pown((-1), i - 1) * (pown(x, 2*i - 1) / fact(2*i - 1));
+  return res;
 }
 
 double cosn(double x, uint16_t count) {
-    double cos = 0, y = x;
-    int i = 1;
-    if (x == 0) {
-        return 1;
-    } else {
-          while (fabs(y) > count) {
-              cos += y;
-              i++;
-              y *= -x * x / (2.0 * i - 1.0) / (2.0 * i);
-          }
-          return cos;
-      }
-    return 0;
+  double res = 0;
+  for (int i = 1; i <= count; i++)
+    res += pown((-1), i - 1) * (pown(x, 2 * i-2) / fact(2*i - 2));
+  return res;
 }
 
 int main() {
