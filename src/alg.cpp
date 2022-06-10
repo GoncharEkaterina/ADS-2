@@ -40,10 +40,12 @@ double sinn(double x, uint16_t count) {
 }
 
 double cosn(double x, uint16_t count) {
-  double res = 0;
-  for (int i = 1; i <= count; i++)
-    res += pown((-1), i - 1) * (pown(x, 2 * i-2) / fact(2*i - 2));
-  return res;
+  int n = count;
+  if (count == 1) {
+    return 1;
+  } else {
+    return pown(-1, n - 1) * calcItem(x, 2 * n - 2) + cosn(x, count - 1);
+  }
 }
 
 int main() {
