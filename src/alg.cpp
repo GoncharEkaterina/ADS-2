@@ -40,9 +40,9 @@ double sinn(double x, uint16_t count) {
 }
 
 double cosn(double x, uint16_t count) {
-    if (count == 1) {
-        return 1;
-    }
-    double tmp = pown(-1, count - 1) * calcItem(x, 2 * count - 2);
-    return tmp + cosn(x, count - 1);
+  double c = 0;
+  for (int n = 1; n <= count; n++) {
+    c += pown(-1, (n-1))*calcItem(x, (2*n-2));
+  }
+  return c;
 }
